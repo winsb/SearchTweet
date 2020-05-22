@@ -43,9 +43,7 @@ pipenv install
 ### 動作確認
 インストールと同じディレクトリで以下のコマンドを入力する。
 ```
-pipenv shell
-python main.py
-pipenv exit
+pipenv run python .\app\main.py
 ```
 API利用申請で登録したアカウントのホームタイムライン表示されたらAPIの利用が可能である。
 
