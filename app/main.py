@@ -18,5 +18,5 @@ tweet_list = st.get_home_timeline()
 
 # output
 for tweet in tweet_list:
-    print(tweet.user_name + "(@" + tweet.user_account + ")\n" + tweet.text)
+    print(tweet)
     print("==========================================================================================")

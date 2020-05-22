@@ -43,6 +43,7 @@ class SearchTweet:
         # convert
         return [tweetdata.TweetData(user_name=tweet["user"]["name"],
                                     user_account=tweet["user"]["screen_name"],
+                                    date=tweet["created_at"],
                                     text=tweet["text"]) for tweet in timeline]
 
     def get_user_timeline(self, screen_name, count=50, exclude_replies=False, include_rts=True):
@@ -65,4 +66,5 @@ class SearchTweet:
         # convert
         return [tweetdata.TweetData(user_name=tweet["user"]["name"],
                                     user_account=tweet["user"]["screen_name"],
+                                    date=tweet["created_at"],
                                     text=tweet["text"]) for tweet in timeline]
