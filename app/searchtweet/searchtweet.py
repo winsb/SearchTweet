@@ -44,3 +44,25 @@ class SearchTweet:
         return [tweetdata.TweetData(user_name=tweet["user"]["name"],
                                     user_account=tweet["user"]["screen_name"],
                                     text=tweet["text"]) for tweet in timeline]
+
+    def get_user_timeline(self, screen_name, count=50, exclude_replies=False, include_rts=True):
+        # url
+        url = TWITTER_API_URL_PREFIX + "statuses/user_timeline.json"
+
+        # params
+        params = dict()
+        params.setdefault("screen_name", screen_name)
+        params.setdefault("count", count)
+        params.setdefault("exclude_replies", exclude_replies)
+        params.setdefault("include_rts", include_rts)
+
+        # request
+        timeline = self._request(url, params, log=True)
+        if timeline is None:
+            print("Error : Not get user timeline")
+            return None
+
+        # convert
+        return [tweetdata.TweetData(user_name=tweet["user"]["name"],
+                                    user_account=tweet["user"]["screen_name"],
+                                    text=tweet["text"]) for tweet in timeline]

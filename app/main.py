@@ -14,6 +14,7 @@ st = searchtweet.SearchTweet(
 
 # get
 tweet_list = st.get_home_timeline()
+# tweet_list = st.get_user_timeline("TwitterDev")
 
 # output
 for tweet in tweet_list:
